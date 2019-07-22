@@ -12,6 +12,10 @@ public class Main {
         list.add(new Person("홍가나",23));
 
 
-        System.out.println("");
+        System.out.println(list);
+        list.sort((p1,p2)->p1.getName().compareTo(p2.getName()));
+        System.out.println(list);
+        list.sort((p1,p2)->Integer.compare(p1.getAge(),p2.getAge()));
+        System.out.println(list);
     }
 }
