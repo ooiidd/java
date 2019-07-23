@@ -3,16 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
-    public static File findFile(String name, File file){
-        File[] fileList = file.listFiles();
-        if(fileList!= null){
-            for(File file1 : fileList){
-
-            }
-        }
-    }
-
     public static void main(String[] args) {
 
         /**
@@ -37,7 +27,7 @@ public class Main {
          * 파일 입출력
          */
         try{
-            //파일 입력
+            //파일 쓰기
             File file = new File("test.txt");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -50,7 +40,7 @@ public class Main {
             fileWriter.close();
 
 
-            //파일 출력
+            //파일 읽기
             File fileout = new File("test.txt");
             FileReader fileReader = new FileReader(fileout);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -65,10 +55,26 @@ public class Main {
 
 
         /**
-         * 폴더 탐색
+         * 파일 읽는 메서드 실행부
          */
+        try {
+            List<String> strList = FileReaderH.readAll("text.txt", "PRINT");
+            System.out.println(strList);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
 
-
+        /**
+         * 외부 프로그램 실행 메서드 실행부
+         */
+        try{
+            String ret = ProcessH.run("Project1.exe","test","4");
+            System.out.println("받은 값 : "+ret);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
         /**
          * 소켓
