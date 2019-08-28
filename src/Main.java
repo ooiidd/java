@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -14,7 +15,8 @@ public class Main {
         list.add(new Person("헤헤헤",43));
         list.add(new Person("가나다",53));
         list.add(new Person("홍가나",23));
-
+        list.add(new Person("홍가가",23));
+        list.add(new Person("홍성훈",45));
 
         System.out.println(list);
         list.sort((p1,p2)->p1.getName().compareTo(p2.getName()));
@@ -22,6 +24,10 @@ public class Main {
         list.sort((p1,p2)->Integer.compare(p1.getAge(),p2.getAge()));
         System.out.println(list);
 
+        Comparator<Person> reversedAge = Comparator.comparing(Person::getAge).reversed();
+        
+        list.sort(Comparator.comparing(Person::getName).reversed().thenComparing(reversedAge));
+        System.out.println(list);
 
         /**
          * 파일 입출력

@@ -20,11 +20,9 @@ public class ProcessH {
         String line = "";
         while((line=br.readLine())!=null){
             ret+=line+"\n";
-//            System.out.println(line);
         }
         proc.waitFor();
         int result = proc.exitValue();
-//        System.out.println("result Val : "+result);
         return ret;
     }
 }

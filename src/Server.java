@@ -22,7 +22,7 @@ public class Server {
 			System.out.println("Server Start");
 			while(true) {
 				socket = serverSocket.accept();
-				executorService.execute(new ProcessThread(socket));
+				executorService.submit(new ProcessThread(socket));
 				
 			}
 			/*in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
